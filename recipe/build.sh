@@ -10,8 +10,6 @@ osx-*)
 	;;
 esac
 
-export PATH="$BUILD_PREFIX/bin:$PATH"
-
 CXXFLAGS="$CXXFLAGS -D_LIBCPP_DISABLE_AVAILABILITY" \
 ./configure \
 	--prefix=$PREFIX \
