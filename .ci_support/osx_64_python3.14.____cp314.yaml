@@ -31,7 +31,7 @@ fontconfig:
 freetype:
 - '2'
 libgdal_core:
-- '3.12'
+- '3.11'
 libiconv:
 - '1'
 libpdal_core:
@@ -39,7 +39,7 @@ libpdal_core:
 libpng:
 - '1.6'
 libpq:
-- '18'
+- '17'
 libsqlite:
 - '3'
 libtiff:
@@ -55,7 +55,7 @@ pin_run_as_build:
 proj:
 - '9.7'
 python:
-- 3.13.* *_cp313
+- 3.14.* *_cp314
 readline:
 - '8'
 target_platform:

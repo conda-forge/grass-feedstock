@@ -29,7 +29,7 @@ fontconfig:
 freetype:
 - '2'
 libgdal_core:
-- '3.11'
+- '3.12'
 libiconv:
 - '1'
 libpdal_core:
@@ -37,7 +37,7 @@ libpdal_core:
 libpng:
 - '1.6'
 libpq:
-- '17'
+- '18'
 libsqlite:
 - '3'
 libtiff:
