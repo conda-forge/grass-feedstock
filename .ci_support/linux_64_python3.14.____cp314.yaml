@@ -1,0 +1,63 @@
+bzip2:
+- '1'
+c_compiler:
+- gcc
+c_compiler_version:
+- '14'
+c_stdlib:
+- sysroot
+c_stdlib_version:
+- '2.17'
+cairo:
+- '1'
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- gxx
+cxx_compiler_version:
+- '14'
+docker_image:
+- quay.io/condaforge/linux-anvil-x86_64:alma9
+expat:
+- '2'
+fftw:
+- '3'
+fontconfig:
+- '2'
+freetype:
+- '2'
+libgdal_core:
+- '3.11'
+libiconv:
+- '1'
+libpdal_core:
+- 2.9.2
+libpng:
+- '1.6'
+libpq:
+- '17'
+libsqlite:
+- '3'
+libtiff:
+- '4.7'
+pin_run_as_build:
+  python:
+    min_pin: x.x
+    max_pin: x.x
+proj:
+- '9.7'
+python:
+- 3.14.* *_cp314
+readline:
+- '8'
+target_platform:
+- linux-64
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
+zlib:
+- '1'
+zstd:
+- '1.5'
