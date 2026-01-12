@@ -20,23 +20,12 @@ echo "RANLIB_FOR_BUILD=${RANLIB_FOR_BUILD}"
 
 export CXXFLAGS="$CXXFLAGS -D_LIBCPP_DISABLE_AVAILABILITY"
 
-configure_opts="\
-	--with-blas \
-	--with-bzlib \
-	--with-lapack \
-	--with-nls \
-	--with-openmp \
-	--with-postgres \
-	--with-pthread \
-	--with-readline \
-"
-
 case "$target_platform" in
 osx-*)
-	configure_opts="$configure_opts \
-		--with-opengl=osx \
-		--with-x=no \
-"
+	with_others="
+		--with-opengl=osx
+		--with-x=no
+	"
 	;;
 esac
 
@@ -49,7 +38,7 @@ if [ "$CONDA_BUILD_CROSS_COMPILATION" = "1" ]; then
 	export AR="${AR_FOR_BUILD}"
 	export RANLIB="${RANLIB_FOR_BUILD}"
 
-	../configure --host="$BUILD" $configure_opts ||
+	../configure --host="$BUILD" ||
 	(echo "===== build-tools config.log =====" && cat config.log && exit 1)
 
 	for tool in general/g.parser; do
@@ -58,7 +47,17 @@ if [ "$CONDA_BUILD_CROSS_COMPILATION" = "1" ]; then
 	ls -al "$(pwd)/dist.$BUILD/bin"
 fi
 
-./configure --prefix=$PREFIX $configure_opts ||
+./configure \
+	--prefix=$PREFIX \
+	--with-blas \
+	--with-bzlib \
+	--with-lapack \
+	--with-nls \
+	--with-openmp \
+	--with-postgres \
+	--with-pthread \
+	--with-readline \
+	$with_others ||
 	(echo "===== config.log =====" && cat config.log && exit 1)
 sed -Ei 's/^(ICONVLIB *= *$)/\1-liconv/' include/Make/Platform.make
 
