@@ -43,6 +43,9 @@ if [ "$CONDA_BUILD_CROSS_COMPILATION" = "1" ]; then
 
 	build_dist="$(pwd)/dist.$BUILD"
 	sed -Ei 's#(\tPATH=")#\1'"$build_dist"'/bin:#' include/Make/Rules.make
+
+	target_dist=$(sed '/^RUN_GISBASE *=/!d
+			   s/^[^=]*= //' include/Make/Platform.make)
 fi
 
 case "$target_platform" in
@@ -74,6 +77,6 @@ sed -Ei 's/^(ICONVLIB *= *$)/\1-liconv/' include/Make/Platform.make
 make -j$CPU_COUNT
 
 [ "$CONDA_BUILD_CROSS_COMPILATION" = "1" ] &&
-	GISRC=junk GISBASE="dist.$HOST" "$build_dist/bin/g.mkfontcap"
+	GISRC=junk GISBASE="$target_dist" "$build_dist/bin/g.mkfontcap"
 
 make install
