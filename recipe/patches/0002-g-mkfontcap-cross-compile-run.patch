@@ -1,14 +1,20 @@
 --- general/g.mkfontcap/Makefile.orig	2025-11-21 08:20:09.000000000 -0700
-+++ general/g.mkfontcap/Makefile	2026-01-13 00:37:16.605360506 -0700
-@@ -10,11 +10,7 @@
++++ general/g.mkfontcap/Makefile	2026-01-13 01:10:21.108377358 -0700
+@@ -12,11 +12,16 @@
  
- include $(MODULE_TOPDIR)/include/Make/Module.make
- 
--ifdef CROSS_COMPILING
--default: cmd
--else
+ ifdef CROSS_COMPILING
+ default: cmd
++
++$(CAPFILE): $(BIN)/$(PGM)$(EXE)
++	GISRC=junk GISBASE=$(RUN_GISBASE) \
++	$(LD_LIBRARY_PATH_VAR)="$(ARCH_LIBDIR):$(BASE_LIBDIR):$($(LD_LIBRARY_PATH_VAR))" \
++	$(PGM)$(EXE) -s > $@
+ else
  default: cmd $(CAPFILE)
 -endif
  
  $(CAPFILE): $(BIN)/$(PGM)$(EXE)
  	GISRC=junk GISBASE=$(RUN_GISBASE) \
+ 	$(LD_LIBRARY_PATH_VAR)="$(ARCH_LIBDIR):$(BASE_LIBDIR):$($(LD_LIBRARY_PATH_VAR))" \
+ 	$< -s > $@
++endif
