@@ -25,6 +25,7 @@ requirements:
     - gettext-tools
     - make           # [unix]
     - pkg-config
+    - proj           # [build_platform != target_platform]
     - python         # [osx]
     - sed            # [unix]
     - zlib           # [build_platform != target_platform]
