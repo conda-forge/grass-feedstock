@@ -67,7 +67,7 @@ requirements:
 
 test:
   commands:
-    - grass --version
+    - grass --version  # [build_platform == target_platform]
 
 about:
   home: https://grass.osgeo.org/
