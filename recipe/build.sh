@@ -56,7 +56,7 @@ if [ "$CONDA_BUILD_CROSS_COMPILATION" = "1" ]; then
 			exit 1
 		)
 
-	for tool in lib/datetime lib/gis utils general/g.parser; do
+	for tool in include lib/datetime lib/gis utils general/g.parser; do
 		make -j$CPU_COUNT -C $tool
 	done)
 	ls -al "$(pwd)/dist.$BUILD/bin"
