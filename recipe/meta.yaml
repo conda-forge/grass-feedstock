@@ -10,7 +10,7 @@ source:
   sha256: {{ sha256 }}
   patches:
     - patches/0001-autoconf-cross-compile-file-checks.patch
-    - patches/0002-g-mkfontcap-cross-compile-skip.patch
+    - patches/0002-g-mkfontcap-cross-compile-run.patch
 
 build:
   number: 3
