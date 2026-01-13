@@ -38,6 +38,9 @@ if [ "$CONDA_BUILD_CROSS_COMPILATION" = "1" ]; then
 	export AR="${AR_FOR_BUILD}"
 	export RANLIB="${RANLIB_FOR_BUILD}"
 
+	export CPPFLAGS="-I${BUILD_PREFIX}/include ${CPPFLAGS}"
+	export LDFLAGS="-L${BUILD_PREFIX}/lib ${LDFLAGS}"
+
 	../configure --host="$BUILD" ||
 	(echo "===== build-tools config.log =====" && cat config.log && exit 1)
 
