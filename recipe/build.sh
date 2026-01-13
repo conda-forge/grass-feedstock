@@ -41,8 +41,22 @@ if [ "$CONDA_BUILD_CROSS_COMPILATION" = "1" ]; then
 	export CPPFLAGS="-I${BUILD_PREFIX}/include ${CPPFLAGS}"
 	export LDFLAGS="-L${BUILD_PREFIX}/lib ${LDFLAGS}"
 
-	../configure --host="$BUILD" ||
-	(echo "===== build-tools config.log =====" && cat config.log && exit 1)
+	../configure \
+		--host="$BUILD" \
+		--without-cairo \
+		--without-fftw \
+		--without-freetype \
+		--without-opengl \
+		--without-pdal \
+		--without-regex \
+		--without-sqlite \
+		--without-tiff \
+		--without-zstd \
+		|| (
+			echo "===== build-tools config.log ====="
+			cat config.log
+			exit 1
+		)
 
 	for tool in general/g.parser; do
 		make -j$CPU_COUNT -C $tool
@@ -60,8 +74,11 @@ fi
 	--with-postgres \
 	--with-pthread \
 	--with-readline \
-	$with_others ||
-	(echo "===== config.log =====" && cat config.log && exit 1)
+	$with_others || (
+		echo "===== config.log ====="
+		cat config.log
+		exit 1
+	)
 sed -Ei 's/^(ICONVLIB *= *$)/\1-liconv/' include/Make/Platform.make
 
 make -j$CPU_COUNT
