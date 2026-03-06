@@ -35,7 +35,7 @@ libgdal_core:
 libiconv:
 - '1'
 libpdal_core:
-- 2.9.2
+- '2.10'
 libpng:
 - '1.6'
 libpq:
@@ -53,7 +53,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 proj:
-- '9.7'
+- '9.8'
 python:
 - 3.11.* *_cpython
 readline:
