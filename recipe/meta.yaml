@@ -13,7 +13,7 @@ source:
     - patches/0002-g-mkfontcap-cross-compile-skip.patch
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win]
 
 requirements:
@@ -39,6 +39,7 @@ requirements:
     - fftw
     - fontconfig
     - freetype
+    - geos
     - gettext       # [osx]
     - libgdal-core
     - libgl-devel   # [linux]

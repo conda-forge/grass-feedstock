@@ -61,6 +61,7 @@ esac
 	--prefix="$PREFIX" \
 	--with-blas \
 	--with-bzlib \
+	--with-geos="$PREFIX/bin/geos-config" \
 	--with-lapack \
 	--with-nls \
 	--with-openmp \
