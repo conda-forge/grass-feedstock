@@ -35,7 +35,7 @@ libgdal_core:
 libiconv:
 - '1'
 libpdal_core:
-- 2.9.2
+- '2.10'
 libpng:
 - '1.6'
 libpq:
