@@ -1,5 +1,5 @@
-{% set version = "8.4.2" %}
-{% set sha256 = "68abc6c119939e40736a96360e9f6ab73e56f74772ec88c31688136215047a8c" %}
+{% set version = "8.5.0" %}
+{% set sha256 = "5d06c81504ea961fab709943cf41d8b3e27cdbaae7ccca5baf3f7bb0c5d9f33d" %}
 
 package:
   name: grass
@@ -13,7 +13,7 @@ source:
     - patches/0002-g-mkfontcap-cross-compile-skip.patch
 
 build:
-  number: 3
+  number: 0
   skip: true  # [win]
 
 requirements:
