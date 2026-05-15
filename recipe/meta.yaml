@@ -13,6 +13,7 @@ source:
     - patches/7310-remote-decision-using-source-url.patch
     - patches/7376-win-python-home.patch
     - patches/7397-autotools-cross-compilation-proj-version-check.patch
+    - patches/7398-autotools-cross-compilation-gdal-version-check.patch
 
 build:
   number: 1
