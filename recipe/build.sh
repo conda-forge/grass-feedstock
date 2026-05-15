@@ -53,13 +53,14 @@ if [ "$target_platform" = "osx-arm64" ]; then
 		--prefix="$PREFIX" \
 		--with-blas \
 		--with-bzlib \
+		--with-geos \
 		--with-lapack \
 		--with-nls \
+		--with-opengl=osx \
 		--with-openmp \
 		--with-postgres \
 		--with-pthread \
 		--with-readline \
-		--with-opengl=osx \
 		--with-x=no || (
 			echo "===== config.log ====="
 			cat config.log
