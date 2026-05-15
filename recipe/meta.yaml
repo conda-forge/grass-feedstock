@@ -27,11 +27,15 @@ requirements:
     - cmake
     - flex           # [unix]
     - gettext-tools
+    - libgdal-core   # [build_platform != target_platform]
+    - libpng         # [build_platform != target_platform]
     - m2-bison       # [win]
     - m2-flex        # [win]
     - make           # [unix]
     - pkg-config
+    - proj           # [build_platform != target_platform]
     - python         # [build_platform != target_platform]
+    - zlib           # [build_platform != target_platform]
   host:
     - bzip2
     - cairo
