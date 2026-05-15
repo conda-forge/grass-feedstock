@@ -1,0 +1,36 @@
+From c7bafcdbf9c9329b6d6c6da61eb1c54334957991 Mon Sep 17 00:00:00 2001
+From: Huidae Cho <grass4u@gmail.com>
+Date: Fri, 15 May 2026 15:26:53 -0600
+Subject: [PATCH] build: Skip PROJ version check on cross-compilation
+
+---
+ configure    | 2 +-
+ configure.ac | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/configure b/configure
+index c1a1526f6ac..58e529aac69 100755
+--- a/configure
++++ b/configure
+@@ -9299,7 +9299,7 @@ proj_version="$proj_ver_major.$proj_ver_minor.$proj_ver_patch"
+ if test "$(expr "$proj_ver_major" \>= 9)" = 1; then
+   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: using PROJ version \"${proj_version}\"" >&5
+ printf "%s\n" "using PROJ version \"${proj_version}\"" >&6; }
+-else
++elif test "$cross_compiling" != "yes" ; then
+   as_fn_error $? "*** PROJ version 9.0.0 or newer is required (found version \"${proj_version}\")" "$LINENO" 5
+ fi
+ 
+diff --git a/configure.ac b/configure.ac
+index b8846fcc357..0f8a7afe83f 100755
+--- a/configure.ac
++++ b/configure.ac
+@@ -765,7 +765,7 @@ proj_version="$proj_ver_major.$proj_ver_minor.$proj_ver_patch"
+ 
+ if test "$(expr "$proj_ver_major" \>= 9)" = 1; then
+   AC_MSG_RESULT([using PROJ version "${proj_version}"])
+-else
++elif test "$cross_compiling" != "yes" ; then
+   AC_MSG_ERROR([*** PROJ version 9.0.0 or newer is required (found version "${proj_version}")])
+ fi
+ 

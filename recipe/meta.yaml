@@ -12,6 +12,7 @@ source:
     - patches/6383-cmake-win.patch
     - patches/7310-remote-decision-using-source-url.patch
     - patches/7376-win-python-home.patch
+    - patches/7397-autotools-cross-compilation-proj-version-check.patch
 
 build:
   number: 1
