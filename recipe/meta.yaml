@@ -42,6 +42,7 @@ requirements:
   host:
     - bzip2
     - cairo
+    - expat         # [osx and arm64]
     - fftw
     - fontconfig
     - freetype
