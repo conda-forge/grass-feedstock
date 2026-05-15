@@ -14,7 +14,7 @@ source:
     - patches/7376-win-python-home.patch
 
 build:
-  number: 0
+  number: 1
   missing_dso_whitelist:
     - "*/grass_*.dll"  # [win]
 
