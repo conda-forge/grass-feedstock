@@ -12,12 +12,13 @@ source:
     - patches/6383-cmake-win.patch
     - patches/7310-remote-decision-using-source-url.patch
     - patches/7376-win-python-home.patch
+    - patches/7397-autotools-cross-compilation-proj-version-check.patch
+    - patches/7398-autotools-cross-compilation-gdal-version-check.patch
 
 build:
-  number: 0
+  number: 1
   missing_dso_whitelist:
     - "*/grass_*.dll"  # [win]
-  skip: true  # [osx and arm64]
 
 requirements:
   build:
@@ -28,14 +29,20 @@ requirements:
     - cmake
     - flex           # [unix]
     - gettext-tools
+    - libgdal-core   # [build_platform != target_platform]
+    - libpng         # [build_platform != target_platform]
     - m2-bison       # [win]
     - m2-flex        # [win]
     - make           # [unix]
     - pkg-config
+    - proj           # [build_platform != target_platform]
     - python         # [build_platform != target_platform]
+    - sed            # [osx]
+    - zlib           # [build_platform != target_platform]
   host:
     - bzip2
     - cairo
+    - expat         # [build_platform != target_platform and osx and arm64]
     - fftw
     - fontconfig
     - freetype

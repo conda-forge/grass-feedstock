@@ -1,0 +1,36 @@
+From 135129c4b3f5bb2ee0e624b4a472f8db0f4b462b Mon Sep 17 00:00:00 2001
+From: Huidae Cho <grass4u@gmail.com>
+Date: Fri, 15 May 2026 15:52:22 -0600
+Subject: [PATCH] build: Skip GDAL version check on cross-compilation
+
+---
+ configure    | 2 +-
+ configure.ac | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/configure b/configure
+index c1a1526f6ac..6ca9c605a44 100755
+--- a/configure
++++ b/configure
+@@ -10345,7 +10345,7 @@ CPPFLAGS=$ac_save_cppflags
+       test "$(expr "$gdal_version_minor" \>= 7)" = 1; then
+       { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: using GDAL version \"${gdal_version}\"" >&5
+ printf "%s\n" "using GDAL version \"${gdal_version}\"" >&6; }
+-  else
++  elif test "$cross_compiling" != "yes" ; then
+       as_fn_error $? "*** GDAL version 3.7 or newer is required (found version \"${gdal_version}\")" "$LINENO" 5
+   fi
+ 
+diff --git a/configure.ac b/configure.ac
+index b8846fcc357..5139a5b081c 100755
+--- a/configure.ac
++++ b/configure.ac
+@@ -963,7 +963,7 @@ else
+   if test "$(expr "$gdal_version_major" \>= 3)" = 1 && \
+       test "$(expr "$gdal_version_minor" \>= 7)" = 1; then
+       AC_MSG_RESULT([using GDAL version "${gdal_version}"])
+-  else
++  elif test "$cross_compiling" != "yes" ; then
+       AC_MSG_ERROR([*** GDAL version 3.7 or newer is required (found version "${gdal_version}")])
+   fi
+ 
