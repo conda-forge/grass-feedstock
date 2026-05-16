@@ -53,7 +53,7 @@ if [ "$target_platform" = "osx-arm64" ]; then
 		--prefix="$PREFIX" \
 		--with-blas \
 		--with-bzlib \
-		--with-geos \
+		--with-geos="$PREFIX/bin/geos-config" \
 		--with-lapack \
 		--with-nls \
 		--with-opengl=osx \
