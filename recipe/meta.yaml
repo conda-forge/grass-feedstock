@@ -58,7 +58,7 @@ requirements:
     - libpq
     - libsqlite
     - libtiff
-    - llvm-openmp   # [osx]
+    - llvm-openmp   # [osx or win]
     - openblas
     - pcre          # [win]
     - proj
@@ -72,7 +72,7 @@ requirements:
   run:
     - libgomp      # [linux]
     - libopenblas
-    - llvm-openmp  # [osx]
+    - llvm-openmp  # [osx or win]
     - python
     - pywin32      # [win]
     - wxpython
