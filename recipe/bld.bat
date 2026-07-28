@@ -1,5 +1,9 @@
 @echo on
-cmake -B build %CMAKE_ARGS% -DPython3_EXECUTABLE="%PYTHON%" -DWITH_OPENGL=OFF
+cmake -B build %CMAKE_ARGS% ^
+    -DPython3_EXECUTABLE="%PYTHON%" ^
+    -DWITH_OPENGL=OFF ^
+    -DOpenMP_C_FLAGS="/openmp" ^
+    -DOpenMP_CXX_FLAGS="/openmp"
 if errorlevel 1 exit /b 1
 
 set CMAKE_BUILD_PARALLEL_LEVEL=1
