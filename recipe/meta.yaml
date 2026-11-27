@@ -16,7 +16,7 @@ source:
     - patches/7398-autotools-cross-compilation-gdal-version-check.patch
 
 build:
-  number: 1
+  number: 2
   missing_dso_whitelist:
     - "*/grass_*.dll"  # [win]
 
